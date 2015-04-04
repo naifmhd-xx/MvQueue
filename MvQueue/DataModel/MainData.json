@@ -1,0 +1,58 @@
+{"Groups":[
+  {
+    "UniqueId": "Group-1",
+    "Title": "Group Title: 1",
+    "Subtitle": "Group subtitle: 1",
+    "ImagePath": "Assets/DarkGray.png",
+    "Items":
+    [
+		{
+			"UniqueId": "ADK",
+			"Title": "ADK Hospital",
+			"Subtitle": "Sosun Magu",
+			"Phone": "Tel:331 3553 Fax:331 3554",
+			"Email": "Email:info@adkenterprises.com",
+			"ImagePath": "Assets/Logo/adk.jpeg"
+		},
+		{
+			"UniqueId": "MIRA",
+			"Title": "Maldives Inland Revenue Authority",
+			"Subtitle": "T-Building, Ameenee Magu",
+			"Phone": "Hotline:1415 Tel:332 2261",
+			"Email": "1415@mira.gov.mv",
+			"ImagePath": "Assets/Logo/mira.png"
+		},
+		{
+			"UniqueId": "MIB",
+			"Title": "Maldives Islamic Bank",
+			"Subtitle": "Ameer Ahmed Magu",
+			"Phone": "Tel:332 5555 Fax:300 7885",
+			"Email": "info@mib.com.mv",
+			"ImagePath": "Assets/Logo/mib.png"
+		},
+		{
+        "UniqueId": "Immigration",
+        "Title": "Department of Immigration",
+		"Subtitle": "Velaanaage, Ameer Ahmed Magu",
+		"Phone": "Tel:333 0444 Fax:332 0011",
+		"Email": "info@immigration.gov.mv",
+        "ImagePath": "Assets/Logo/immigration.png"
+      },{
+        "UniqueId": "SBI",
+        "Title": "State Bank of India",
+		"Subtitle": "H.Sunleet, Boduthakurufaanu Magu",
+		"Phone": "Tel:331 2111 Fax:332 3053",
+		"Email": "sbimale@statebank.com",
+        "ImagePath": "Assets/Logo/sbi.png"
+      },{
+        "UniqueId": "Medica",
+        "Title": "Medica Hospital",
+		"Subtitle": "Faamudheyri Magu",
+		"Phone": "Tel:331 2111 Fax:332 3053",
+		"Email": "sbimale@statebank.com",
+        "ImagePath": "Assets/Logo/medica.jpg"
+      }
+    ]
+  }
+]
+}
