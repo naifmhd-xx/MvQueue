@@ -8,21 +8,25 @@
     xmlns:dataModel="using:MvQueue.DataModel"
     mc:Ignorable="d"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
-    Background="LightGray"
+
+    Background="#EEE"
     Foreground="Black">
+
     <Page.Transitions>
         <TransitionCollection>
             <NavigationThemeTransition>
                 <NavigationThemeTransition.DefaultNavigationTransitionInfo>
-                    <CommonNavigationTransitionInfo IsStaggeringEnabled="True"/>
+                    <CommonNavigationTransitionInfo IsStaggeringEnabled="True" />
                 </NavigationThemeTransition.DefaultNavigationTransitionInfo>
             </NavigationThemeTransition>
         </TransitionCollection>
     </Page.Transitions>
 
     <Grid>
-        <Pivot x:Uid="Pivot" Title="MV Queue Status" Foreground="Black" x:Name="pivot" CommonNavigationTransitionInfo.IsStaggerElement="True">
+        <Pivot x:Uid="Pivot" Title="MV Queue Status" Foreground="Black" x:Name="pivot"
+               CommonNavigationTransitionInfo.IsStaggerElement="True">
             <!--Pivot item one-->
+
             <PivotItem
                 x:Uid="PivotItem1"
                 Margin="19,14.5,0,0"
@@ -38,43 +42,43 @@
                     ContinuumNavigationTransitionInfo.ExitElementContainer="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Width="380" 
+                            <StackPanel Width="380"
                                         Margin="0,5" Background="White" Orientation="Horizontal">
                                 <Image Width="90" Margin="10"
-                                       Source="{Binding ImagePath}"/>
+                                       Source="{Binding ImagePath}" />
                                 <StackPanel Margin="5,10">
                                     <TextBlock
-                                    Text="{Binding Title}"
-                                    Foreground="Gray"
-                                    TextWrapping="Wrap"
-                                    Pivot.SlideInAnimationGroup="1"
-                                    CommonNavigationTransitionInfo.IsStaggerElement="True"
-                                    Style="{ThemeResource ListViewItemContentTextBlockStyle}"
-                                    Margin="0,0,19,0"/>
+                                        Text="{Binding Title}"
+                                        Foreground="Gray"
+                                        TextWrapping="Wrap"
+                                        Pivot.SlideInAnimationGroup="1"
+                                        CommonNavigationTransitionInfo.IsStaggerElement="True"
+                                        Style="{ThemeResource ListViewItemContentTextBlockStyle}"
+                                        Margin="0,0,19,0" />
                                     <TextBlock
-                                    Text="{Binding Subtitle}"
-                                    Foreground="Gray"
-                                    TextWrapping="WrapWholeWords"
-                                    Pivot.SlideInAnimationGroup="2" 
-                                    CommonNavigationTransitionInfo.IsStaggerElement="True" 
-                                    Style="{ThemeResource ListViewItemContentTextBlockStyle}"
-                                    Margin="0,0,19,0"/>
+                                        Text="{Binding Subtitle}"
+                                        Foreground="Gray"
+                                        TextWrapping="WrapWholeWords"
+                                        Pivot.SlideInAnimationGroup="2"
+                                        CommonNavigationTransitionInfo.IsStaggerElement="True"
+                                        Style="{ThemeResource ListViewItemContentTextBlockStyle}"
+                                        Margin="0,0,19,0" />
                                     <TextBlock
-                                    Text="{Binding Phone}"
-                                    Foreground="Gray"
-                                    TextWrapping="WrapWholeWords"
-                                    Pivot.SlideInAnimationGroup="2" 
-                                    CommonNavigationTransitionInfo.IsStaggerElement="True" 
-                                    Style="{ThemeResource ListViewItemContentTextBlockStyle}"
-                                    Margin="0,0,19,0"/>
+                                        Text="{Binding Phone}"
+                                        Foreground="Gray"
+                                        TextWrapping="WrapWholeWords"
+                                        Pivot.SlideInAnimationGroup="2"
+                                        CommonNavigationTransitionInfo.IsStaggerElement="True"
+                                        Style="{ThemeResource ListViewItemContentTextBlockStyle}"
+                                        Margin="0,0,19,0" />
                                     <TextBlock
-                                    Text="{Binding Email}"
-                                    Foreground="Gray"
-                                    TextWrapping="WrapWholeWords"
-                                    Pivot.SlideInAnimationGroup="2" 
-                                    CommonNavigationTransitionInfo.IsStaggerElement="True" 
-                                    Style="{ThemeResource ListViewItemContentTextBlockStyle}"
-                                    Margin="0,0,19,0"/>
+                                        Text="{Binding Email}"
+                                        Foreground="Gray"
+                                        TextWrapping="WrapWholeWords"
+                                        Pivot.SlideInAnimationGroup="2"
+                                        CommonNavigationTransitionInfo.IsStaggerElement="True"
+                                        Style="{ThemeResource ListViewItemContentTextBlockStyle}"
+                                        Margin="0,0,19,0" />
                                 </StackPanel>
                             </StackPanel>
                         </DataTemplate>
@@ -88,12 +92,11 @@
 
     <Page.BottomAppBar>
         <CommandBar>
-            <AppBarButton x:Uid="AddAppBarButton" x:Name="AddAppBarButton" Label="add" Icon="Add" Click="AddAppBarButton_Click" />
+            <!--<AppBarButton x:Uid="RefreshButton" x:Name="RefreshButton" Label="refresh" Icon="refresh"
+                          Click="Refresh_Click" />-->
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Uid="SecondaryButton1" x:Name="SecondaryButton1" Label="secondary command 1" />
-                <AppBarButton x:Uid="SecondaryButton2" x:Name="SecondaryButton2" Label="secondary command 2" />
+                <AppBarButton x:Uid="AboutButton" x:Name="AboutButton" Label="about" />
             </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
 </Page>
-

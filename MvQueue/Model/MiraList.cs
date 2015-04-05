@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace MvQueue.Model
+﻿namespace MvQueue.Model
 {
     public class MiraList
     {

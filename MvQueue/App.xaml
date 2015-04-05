@@ -8,8 +8,9 @@
 
     <Application.Resources>
         <xaml:ResourceDictionary>
-
-
+            <xaml1:ItemsPanelTemplate x:Key="TokensPanelTemplate">
+                <xaml1:ItemsStackPanel Orientation="Vertical" />
+            </xaml1:ItemsPanelTemplate>
         </xaml:ResourceDictionary>
     </Application.Resources>
 </Application>

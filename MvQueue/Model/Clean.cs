@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿#region
+
+using System;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+
+#endregion
 
 namespace MvQueue.Model
 {
@@ -18,7 +19,6 @@ namespace MvQueue.Model
             return s;
         }
 
-        
 
         public static string Excerpt(string input, int numberWords)
         {
@@ -80,7 +80,6 @@ namespace MvQueue.Model
             return t + " " + comment;
         }
 
-        
 
         public static string Text(string s)
         {

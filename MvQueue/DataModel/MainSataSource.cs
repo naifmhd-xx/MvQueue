@@ -1,10 +1,14 @@
-﻿using System;
+﻿#region
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.Data.Json;
 using Windows.Storage;
+
+#endregion
 
 // The data model defined by this file serves as a representative example of a strongly-typed
 // model.  The property names chosen coincide with data bindings in the standard item templates.
@@ -17,7 +21,7 @@ using Windows.Storage;
 namespace MvQueue.DataModel
 {
     /// <summary>
-    /// Generic item data model.
+    ///     Generic item data model.
     /// </summary>
     public class MainDataItem
     {
@@ -45,7 +49,7 @@ namespace MvQueue.DataModel
     }
 
     /// <summary>
-    /// Generic group data model.
+    ///     Generic group data model.
     /// </summary>
     public class MainDataGroup
     {
@@ -59,7 +63,7 @@ namespace MvQueue.DataModel
         }
 
         public string UniqueId { get; set; }
-        public string Title { get; set;}
+        public string Title { get; set; }
         public string Subtitle { get; private set; }
         public string ImagePath { get; private set; }
         public ObservableCollection<MainDataItem> Items { get; set; }
@@ -71,16 +75,16 @@ namespace MvQueue.DataModel
     }
 
     /// <summary>
-    /// Creates a collection of groups and items with content read from a static json file.
-    /// 
-    /// MainDataSource initializes with data read from a static json file included in the 
-    /// project.  This provides main data at both design-time and run-time.
+    ///     Creates a collection of groups and items with content read from a static json file.
+    ///     MainDataSource initializes with data read from a static json file included in the
+    ///     project.  This provides main data at both design-time and run-time.
     /// </summary>
     public sealed class MainDataSource
     {
-        private static MainDataSource _mainDataSource = new MainDataSource();
+        private static readonly MainDataSource _mainDataSource = new MainDataSource();
 
-        private ObservableCollection<MainDataGroup> _groups = new ObservableCollection<MainDataGroup>();
+        private readonly ObservableCollection<MainDataGroup> _groups = new ObservableCollection<MainDataGroup>();
+
         public ObservableCollection<MainDataGroup> Groups
         {
             get { return _groups; }
@@ -106,7 +110,8 @@ namespace MvQueue.DataModel
         {
             await _mainDataSource.GetMainDataAsync();
             // Simple linear search is acceptable for small data sets
-            var matches = _mainDataSource.Groups.SelectMany(group => group.Items).Where(item => item.UniqueId.Equals(uniqueId));
+            var matches =
+                _mainDataSource.Groups.SelectMany(group => group.Items).Where(item => item.UniqueId.Equals(uniqueId));
             if (matches.Count() == 1) return matches.First();
             return null;
         }
@@ -125,23 +130,23 @@ namespace MvQueue.DataModel
 
             foreach (var jsonValue1 in jsonArray)
             {
-                var groupValue = (JsonValue)jsonValue1;
+                var groupValue = (JsonValue) jsonValue1;
                 JsonObject groupObject = groupValue.GetObject();
                 MainDataGroup group = new MainDataGroup(groupObject["UniqueId"].GetString(),
-                                                            groupObject["Title"].GetString(),
-                                                            groupObject["Subtitle"].GetString(),
-                                                            groupObject["ImagePath"].GetString());
+                    groupObject["Title"].GetString(),
+                    groupObject["Subtitle"].GetString(),
+                    groupObject["ImagePath"].GetString());
 
                 foreach (var jsonValue in groupObject["Items"].GetArray())
                 {
-                    var itemValue = (JsonValue)jsonValue;
+                    var itemValue = (JsonValue) jsonValue;
                     JsonObject itemObject = itemValue.GetObject();
                     group.Items.Add(new MainDataItem(itemObject["UniqueId"].GetString(),
-                                                       itemObject["Title"].GetString(),
-                                                       itemObject["Subtitle"].GetString(),
-                                                       itemObject["Phone"].GetString(),
-                                                       itemObject["Email"].GetString(),
-                                                       itemObject["ImagePath"].GetString()));
+                        itemObject["Title"].GetString(),
+                        itemObject["Subtitle"].GetString(),
+                        itemObject["Phone"].GetString(),
+                        itemObject["Email"].GetString(),
+                        itemObject["ImagePath"].GetString()));
                 }
                 Groups.Add(group);
             }

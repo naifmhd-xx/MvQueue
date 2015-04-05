@@ -12,20 +12,21 @@
 
         <Grid.ChildrenTransitions>
             <TransitionCollection>
-                <EntranceThemeTransition/>
+                <EntranceThemeTransition />
             </TransitionCollection>
         </Grid.ChildrenTransitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <ProgressBar IsIndeterminate="true" Grid.Row="1" x:Name="TokenBar" VerticalAlignment="Center" />
         <!-- Title Panel -->
         <StackPanel Grid.Row="0" Margin="19,0,0,0">
             <Border Background="#1166DD" Margin="-19,0,-0.167,0">
-                <TextBlock Text="State Bank of India" Style="{ThemeResource TitleTextBlockStyle}" 
-                       Foreground="White" Margin="12" TextAlignment="Center"/>
+                <TextBlock Text="State Bank of India" Style="{ThemeResource TitleTextBlockStyle}"
+                           Foreground="White" Margin="12" TextAlignment="Center" />
             </Border>
         </StackPanel>
 
@@ -35,10 +36,18 @@
                 <ListView x:Name="TokenList" ItemsSource="{Binding MyItems}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Background="White" Margin="10">
-                                <TextBlock Foreground="Black" FontSize="20" Margin="10" Text="{Binding Title}" Width="240"/>
-                                <TextBlock Foreground="Black" FontSize="20" Margin="10" Text="{Binding Token}"/>
-                            </StackPanel>
+                            <Grid Background="White" Width="360">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="90" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Foreground="Black" FontSize="20" Margin="10"
+                                           VerticalAlignment="Center" TextWrapping="Wrap"
+                                           Text="{Binding Title}" />
+                                <TextBlock Grid.Column="1" Foreground="Black" FontSize="20" Margin="10"
+                                           VerticalAlignment="Center"
+                                           Text="{Binding Token}" />
+                            </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
@@ -46,4 +55,11 @@
             </StackPanel>
         </Grid>
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Uid="RefreshButton" x:Name="RefreshButton" Label="refresh" Icon="refresh"
+                          Click="Refresh_Click" />
+
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>

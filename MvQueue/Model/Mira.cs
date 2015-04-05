@@ -1,8 +1,8 @@
-﻿using System;
+﻿#region
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
+#endregion
 
 namespace MvQueue.Model
 {
@@ -10,8 +10,9 @@ namespace MvQueue.Model
     {
         public Mira()
         {
-            TokenList=new List<TokenList>();
+            TokenList = new List<TokenList>();
         }
+
         public string Title { get; set; }
         public List<TokenList> TokenList { get; set; }
     }

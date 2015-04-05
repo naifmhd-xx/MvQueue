@@ -12,32 +12,42 @@
 
         <Grid.ChildrenTransitions>
             <TransitionCollection>
-                <EntranceThemeTransition/>
+                <EntranceThemeTransition />
             </TransitionCollection>
         </Grid.ChildrenTransitions>
 
         <Grid.RowDefinitions>
-          <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <!-- Title Panel -->
+        <ProgressBar IsIndeterminate="true" Grid.Row="1" x:Name="TokenBar" VerticalAlignment="Center" />
         <StackPanel Grid.Row="0" Margin="19,0,0,0">
             <Border Background="#EC3525" Margin="-19,0,-0.167,0">
-                <TextBlock Text="Medica Hospital" Style="{ThemeResource TitleTextBlockStyle}" 
-                       Foreground="White" Margin="12" TextAlignment="Center"/>
+                <TextBlock Text="Medica Hospital" Style="{ThemeResource TitleTextBlockStyle}"
+                           Foreground="White" Margin="12" TextAlignment="Center" />
             </Border>
         </StackPanel>
 
         <!--TODO: Content should be placed within the following grid-->
-        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="12,12,12,0">
             <StackPanel>
                 <ListView x:Name="TokenList" ItemsSource="{Binding MyItems}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Background="White" Margin="10">
-                                <TextBlock Foreground="Black" FontSize="20" Margin="10" Text="{Binding Title}" Width="240"/>
-                                <TextBlock Foreground="Black" FontSize="20" Margin="10" Text="{Binding Token}"/>
-                            </StackPanel>
+                            <Grid Background="White" Width="360">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="90" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Foreground="Black" FontSize="20" Margin="10"
+                                           VerticalAlignment="Center" TextWrapping="Wrap"
+                                           Text="{Binding Title}" />
+                                <TextBlock Grid.Column="1" Foreground="Black" FontSize="20" Margin="10"
+                                           VerticalAlignment="Center"
+                                           Text="{Binding Token}" />
+                            </Grid>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
@@ -45,4 +55,11 @@
             </StackPanel>
         </Grid>
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Uid="RefreshButton" x:Name="RefreshButton" Label="refresh" Icon="refresh"
+                          Click="Refresh_Click" />
+
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>

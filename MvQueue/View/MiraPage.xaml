@@ -16,48 +16,55 @@
 
         <Grid.ChildrenTransitions>
             <TransitionCollection>
-                <EntranceThemeTransition/>
+                <EntranceThemeTransition />
             </TransitionCollection>
         </Grid.ChildrenTransitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
+        <ProgressBar IsIndeterminate="true" Grid.Row="1" x:Name="TokenBar" VerticalAlignment="Center" />
         <!-- Title Panel -->
         <StackPanel Grid.Row="0" Margin="19,0,0,0">
-            <Border Background="#248791" Margin="-19,0,-0.167,0">
-                <TextBlock Text="Maldives Inland Revenue Authority" Style="{ThemeResource TitleTextBlockStyle}" 
-                       Foreground="White" Margin="12" TextAlignment="Center"/>
+            <Border Background="#248791" Margin="-19,0,0,0">
+                <TextBlock Text="Maldives Inland Revenue Authority" Style="{ThemeResource TitleTextBlockStyle}"
+                           Foreground="White" Margin="12" TextAlignment="Center" />
             </Border>
         </StackPanel>
 
         <!--TODO: Content should be placed within the following grid-->
-        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
-            
+        <Grid Grid.Row="1" x:Name="ContentRoot" Margin="12,12,12,0">
+
+
             <ListView x:Name="MiraList">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
+                        <StackPanel Margin="0,12,0,0">
                             <Border Background="White">
-                                <TextBlock  Text="{Binding Title}"  TextAlignment="Center" Margin="0,12" FontWeight="Bold" Foreground="Black" />
+                                <TextBlock Text="{Binding Title}" TextAlignment="Center" Margin="0,12"
+                                           FontWeight="Bold" Foreground="Black" />
                             </Border>
-                            <controls1:Border Background="White" Margin="-20,0,0,0" Height="48">
-                                <TextBlock  Text="{Binding Title}"  TextAlignment="Center" VerticalAlignment="Center"  FontWeight="Bold" Foreground="Black" FontSize="20" />
-                            </controls1:Border>
 
                             <ListView x:Name="TokenList" ItemsSource="{Binding TokenList}">
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
-                                        <StackPanel Orientation="Horizontal" Background="White" >
-                                            <TextBlock Foreground="Black" FontSize="20" Margin="10" Text="{Binding Title}" Width="291"/>
-                                            <controls1:TextBlock Foreground="Black" FontSize="20" Margin="10" Text="{Binding Token}"/>
-                                        </StackPanel>
+                                        <Grid Background="White" Width="360">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="90" />
+                                            </Grid.ColumnDefinitions>
+                                            <TextBlock Grid.Column="0" Foreground="Black" FontSize="20" Margin="10"
+                                                       VerticalAlignment="Center" TextWrapping="Wrap"
+                                                       Text="{Binding Title}" />
+                                            <TextBlock Grid.Column="1" Foreground="Black" FontSize="20" Margin="10"
+                                                       VerticalAlignment="Center"
+                                                       Text="{Binding Token}" />
+                                        </Grid>
                                     </DataTemplate>
                                 </ListView.ItemTemplate>
                             </ListView>
-
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -65,4 +72,11 @@
 
         </Grid>
     </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton x:Uid="RefreshButton" x:Name="RefreshButton" Label="refresh" Icon="refresh"
+                          Click="Refresh_Click" />
+
+        </CommandBar>
+    </Page.BottomAppBar>
 </Page>
